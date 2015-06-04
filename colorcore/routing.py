@@ -70,8 +70,9 @@ class Configuration():
     def __init__(self, parser):
         self.parser = parser
 
-        defaults = bitcoin.MainParams.BASE58_PREFIXES
-
+        # defaults = bitcoin.MainParams.BASE58_PREFIXES
+        defaults = bitcoin.RegTestParams.BASE58_PREFIXES
+        
         self.blockchain_provider = parser.get('general', 'blockchain-provider', fallback=None)
         self.version_byte = int(parser.get('environment', 'version-byte', fallback=str(defaults['PUBKEY_ADDR'])))
         self.p2sh_byte = int(parser.get('environment', 'p2sh-version-byte', fallback=str(defaults['SCRIPT_ADDR'])))
